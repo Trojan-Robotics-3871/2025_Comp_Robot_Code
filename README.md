@@ -34,7 +34,7 @@ For the year 2024, there's two libraries we use primarily in the code. We use th
 
 The links to these packages are as follows:
 https://software-metadata.revrobotics.com/REVLib-2025.json
-https://www.playingwithfusion.com/frc/playingwithfusion2024.json
+https://www.playingwithfusion.com/frc/playingwithfusion2025.json
 
 To install these packages, you can do the following:
 
