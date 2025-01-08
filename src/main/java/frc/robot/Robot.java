@@ -146,7 +146,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // Use the right joystick for angle-based control
-    setDriveMotorsFromJoystick(Controller.getRightX(), -Controller.getRightY());
+    setDriveMotorsFromJoystick(Controller.getLeftX(), Controller.getLeftY());
   }
 
   @Override
