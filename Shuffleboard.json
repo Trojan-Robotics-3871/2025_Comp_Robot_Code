@@ -61,58 +61,6 @@
               "Layout/Number of rows": 3,
               "Layout/Label position": "BOTTOM",
               "_children": {
-                "0,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Front Left Motor",
-                  "_title": "Front Left Motor",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "0,1": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Front Right Motor",
-                  "_title": "Front Right Motor",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "1,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Rear Left Motor",
-                  "_title": "Rear Left Motor",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "1,1": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Rear Right Motor",
-                  "_title": "Rear Right Motor",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
                 "2,0": {
                   "_type": "Number Bar",
                   "_source0": "network_table:///SmartDashboard/Left Power (%)",
@@ -138,14 +86,82 @@
                   "Visuals/Num tick marks": 5,
                   "Visuals/Show text": true,
                   "Visuals/Orientation": "HORIZONTAL"
+                },
+                "0,1": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Rear",
+                  "_title": "Left Rear (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "1,1": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Right Rear",
+                  "_title": "Right Rear (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "0,0": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Front",
+                  "_title": "Left Front (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "1,0": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Right Front",
+                  "_title": "Right Front (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
                 }
               }
+            }
+          },
+          "0,2": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "REV Motors Statistics",
+              "_glyph": 149,
+              "_showGlyph": false,
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "BOTTOM",
+              "_children": {}
             }
           },
           "4,0": {
             "size": [
               3,
-              3
+              2
             ],
             "content": {
               "_type": "Grid Layout",
@@ -173,15 +189,37 @@
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
-                },
-                "1,1": {
-                  "_type": "ComboBox Chooser",
-                  "_source0": "network_table:///SmartDashboard/Auto choices",
-                  "_title": "Auto choices",
-                  "_glyph": 148,
-                  "_showGlyph": false
                 }
               }
+            }
+          },
+          "4,2": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "Pneumatics Hub",
+              "_glyph": 149,
+              "_showGlyph": false,
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "BOTTOM",
+              "_children": {}
+            }
+          },
+          "3,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Auto choices",
+              "_title": "Auto choices",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }

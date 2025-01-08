@@ -1,14 +1,12 @@
 // FRC Imports - DO NOT REMOVE!
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PowerDistribution;
 // WPILib Imports
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // Venom Imports
@@ -16,6 +14,8 @@ import com.playingwithfusion.CANVenom;
 import com.playingwithfusion.CANVenom.BrakeCoastMode;
 
 public class Robot extends TimedRobot {
+
+  private PowerDistribution BatteryVolt = new PowerDistribution();
 
   // Tank drive wheels -
   CANVenom LeftRear = new CANVenom(1); // Serial 6701
@@ -78,6 +78,25 @@ public class Robot extends TimedRobot {
     LeftRear.set(-leftSpeed); // Invert direction for LeftRear motor
     RightFront.set(rightSpeed);
     RightRear.set(-rightSpeed); // Invert direction for RightRear motor
+
+    // Driving power stats - View by opening SmartDashboard
+    SmartDashboard.putNumber("Joystick X", x);
+    SmartDashboard.putNumber("Joystick Y", y);
+    SmartDashboard.putNumber("Joystick Angle", A);
+    SmartDashboard.putNumber("Left Power (%)", leftSpeed);
+    SmartDashboard.putNumber("Right Power (%)", rightSpeed);
+
+    // Create battery configuration for SmartDashboard
+    double BatteryVoltage = BatteryVolt.getVoltage();
+
+    // Battery Voltage statistic
+    SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
+
+    // Motor speed stats
+    SmartDashboard.putNumber("Left Rear", LeftRear.get());
+    SmartDashboard.putNumber("Right Rear", RightRear.get());
+    SmartDashboard.putNumber("Left Front", LeftFront.get());
+    SmartDashboard.putNumber("Right Front", RightFront.get());
   }
 
   private Command m_autonomousCommand;
@@ -99,6 +118,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
+    LeftFront.setBrakeCoastMode(BrakeCoastMode.Brake);
+    LeftRear.follow(LeftFront);
+    RightFront.setBrakeCoastMode(BrakeCoastMode.Brake);
+    RightRear.follow(RightFront);
   }
 
   @Override
