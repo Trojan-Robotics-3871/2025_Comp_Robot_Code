@@ -9,9 +9,13 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-// Venom Imports
+// Venom Imports -
 import com.playingwithfusion.CANVenom;
 import com.playingwithfusion.CANVenom.BrakeCoastMode;
+
+// REV Imports -
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
 
@@ -22,6 +26,9 @@ public class Robot extends TimedRobot {
   CANVenom RightRear = new CANVenom(2); // Serial 6739
   CANVenom LeftFront = new CANVenom(3); // Serial 6682
   CANVenom RightFront = new CANVenom(4); // Serial 6725
+
+  // Spark Motors -
+  SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
 
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
@@ -69,7 +76,7 @@ public class Robot extends TimedRobot {
     }
 
     // Configuration for modifying drive wheels speed
-    double maxSpeed = 0.7;
+    double maxSpeed = 1;
     leftSpeed = Math.max(-maxSpeed, Math.min(leftSpeed, maxSpeed));
     rightSpeed = Math.max(-maxSpeed, Math.min(rightSpeed, maxSpeed));
 
@@ -85,6 +92,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Joystick Angle", A);
     SmartDashboard.putNumber("Left Power (%)", leftSpeed);
     SmartDashboard.putNumber("Right Power (%)", rightSpeed);
+
+    // Coral Motor Stats for SmartDashboard
+    SmartDashboard.putNumber("Coral Motor (%)", CoralMotor.get());
 
     // Create battery configuration for SmartDashboard
     double BatteryVoltage = BatteryVolt.getVoltage();
@@ -147,6 +157,17 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     // Use the right joystick for angle-based control
     setDriveMotorsFromJoystick(Controller.getLeftX(), Controller.getLeftY());
+
+    // Variable to control the Coral motor
+    double coralMotorSpeed = 0;
+
+    // Y Button: intake out, floor motor reverse
+    if (Controller.getYButton()) {
+      coralMotorSpeed = 0.50;
+    }
+
+    // Set the motor speed based on the input
+    CoralMotor.set(coralMotorSpeed);
   }
 
   @Override
