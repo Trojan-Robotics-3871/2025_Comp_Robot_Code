@@ -46,52 +46,23 @@ public class Robot extends TimedRobot {
     return Math.sqrt(x * x + y * y);
   }
 
-  // Create drive motors, configured for turning based on joystick angle
-  public void setDriveMotorsFromJoystick(double x, double y) {
-    double K = getJoystickMagnitude(x, y); // Magnitude of joystick input
-    double A = getJoystickAngle(x, y); // Angle of joystick input
+  // Create drive motors, configured for forward/backwards
+  public void setDriveMotors(double forward, double backward) {
 
-    double leftSpeed = 0;
-    double rightSpeed = 0;
-
-    // Adding a small threshold to avoid deadzone issues between 350° and 0°
-    double angleThreshold = 15; // This is the deadzone threshold (adjust as necessary)
-    if (A >= 360 - angleThreshold || A <= angleThreshold) {
-      A = 0; // Set to zero if within a small range near 360 or 0 degrees
-    }
-
-    // Check which angle range A falls into, and set left and right motor speeds
-    if (90 <= (A + 45) && (A + 45) < 180) { // Forward
-      leftSpeed = K;
-      rightSpeed = K;
-    } else if (180 <= (A + 45) && (A + 45) < 270) { // Left
-      leftSpeed = K;
-      rightSpeed = -K;
-    } else if (270 <= (A + 45) && (A + 45) < 360) { // Backwards
-      leftSpeed = -K;
-      rightSpeed = -K;
-    } else if (0 <= (A + 45) && (A + 45) < 90) { // Right
-      leftSpeed = -K;
-      rightSpeed = K;
-    }
+    // Calculate the raw left and right values
+    double left = forward - backward;
+    double right = forward + backward;
 
     // Configuration for modifying drive wheels speed
-    double maxSpeed = 1;
-    leftSpeed = Math.max(-maxSpeed, Math.min(leftSpeed, maxSpeed));
-    rightSpeed = Math.max(-maxSpeed, Math.min(rightSpeed, maxSpeed));
+    double maxSpeed = 0.5;
+    double leftSpeed = Math.max(-maxSpeed, Math.min(left, maxSpeed));
+    double rightSpeed = Math.max(-maxSpeed, Math.min(right, maxSpeed));
 
-    // Set motor speeds and invert direction for follower motors
-    LeftFront.set(leftSpeed);
-    LeftRear.set(-leftSpeed); // Invert direction for LeftRear motor
-    RightFront.set(rightSpeed);
-    RightRear.set(-rightSpeed); // Invert direction for RightRear motor
-
-    // Driving power stats - View by opening SmartDashboard
-    SmartDashboard.putNumber("Joystick X", x);
-    SmartDashboard.putNumber("Joystick Y", y);
-    SmartDashboard.putNumber("Joystick Angle", A);
-    SmartDashboard.putNumber("Left Power (%)", leftSpeed);
-    SmartDashboard.putNumber("Right Power (%)", rightSpeed);
+    // Set motor speeds
+    LeftFront.set(-leftSpeed);
+    RightFront.follow(LeftFront);
+    LeftRear.set(-rightSpeed);
+    RightRear.follow(LeftRear);
 
     // Coral Motor Stats for SmartDashboard
     SmartDashboard.putNumber("Coral Motor (%)", CoralMotor.get());
@@ -101,6 +72,10 @@ public class Robot extends TimedRobot {
 
     // Battery Voltage statistic
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
+
+    // Power Speeds
+    SmartDashboard.putNumber("Left Power (%)", leftSpeed);
+    SmartDashboard.putNumber("Right Power (%)", rightSpeed);
 
     // Motor speed stats
     SmartDashboard.putNumber("Left Rear", LeftRear.get());
@@ -155,8 +130,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // Use the right joystick for angle-based control
-    setDriveMotorsFromJoystick(Controller.getLeftX(), Controller.getLeftY());
+    double rightX = Controller.getRightX();
+    double leftY = Controller.getLeftY();
+
+    // Set the drive motors
+    setDriveMotors(rightX, leftY);
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
@@ -168,6 +146,14 @@ public class Robot extends TimedRobot {
 
     // Set the motor speed based on the input
     CoralMotor.set(coralMotorSpeed);
+
+    // Display joystick x and y values on the SmartDashboard
+    SmartDashboard.putNumber("Joystick X", rightX);
+    SmartDashboard.putNumber("Joystick Y", leftY);
+
+    // Calculate and display the joystick angle on the SmartDashboard
+    double joystickAngle = getJoystickAngle(rightX, leftY);
+    SmartDashboard.putNumber("Joystick Angle", joystickAngle);
   }
 
   @Override
