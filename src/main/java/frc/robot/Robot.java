@@ -162,8 +162,8 @@ public class Robot extends TimedRobot {
     double coralMotorSpeed = 0;
 
     // Y Button: intake out, floor motor reverse
-    if (Controller.getYButton()) {
-      coralMotorSpeed = 0.50;
+    if (Controller.getAButton()) {
+      coralMotorSpeed = -0.15;
     }
 
     // Set the motor speed based on the input
