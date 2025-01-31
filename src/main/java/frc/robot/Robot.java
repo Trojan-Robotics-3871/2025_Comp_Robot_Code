@@ -33,6 +33,9 @@ public class Robot extends TimedRobot {
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
 
+  // Create battery Configuration -
+  double BatteryVoltage = BatteryVolt.getVoltage();
+
   // Helper function to calculate joystick angle
   public double getJoystickAngle(double x, double y) {
     double radians = Math.atan2(y, x);
@@ -86,33 +89,14 @@ public class Robot extends TimedRobot {
     RightFront.set(rightSpeed);
     RightRear.set(-rightSpeed); // Invert direction for RightRear motor
 
-    // Driving power stats - View by opening SmartDashboard
+    // Joystick Statistics
     SmartDashboard.putNumber("Joystick X", x);
     SmartDashboard.putNumber("Joystick Y", y);
     SmartDashboard.putNumber("Joystick Angle", A);
+
+    // Power Statistics
     SmartDashboard.putNumber("Left Power (%)", leftSpeed);
     SmartDashboard.putNumber("Right Power (%)", rightSpeed);
-
-    // Coral Motor Stats for SmartDashboard
-    SmartDashboard.putNumber("Coral Motor (%)", CoralMotor.get());
-
-    SmartDashboard.putNumber("Left Front Temperature (C)", LeftFront.getTemperature());
-    SmartDashboard.putNumber("Left Rear Temperature (C)", LeftRear.getTemperature());
-    SmartDashboard.putNumber("Right Front Temperature (C)", RightFront.getTemperature());
-    SmartDashboard.putNumber("Right Rear Temperature (C)", RightRear.getTemperature());
-    SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
-
-    // Create battery configuration for SmartDashboard
-    double BatteryVoltage = BatteryVolt.getVoltage();
-
-    // Battery Voltage statistic
-    SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
-
-    // Motor speed stats
-    SmartDashboard.putNumber("Left Rear", LeftRear.get());
-    SmartDashboard.putNumber("Right Rear", RightRear.get());
-    SmartDashboard.putNumber("Left Front", LeftFront.get());
-    SmartDashboard.putNumber("Right Front", RightFront.get());
   }
 
   private Command m_autonomousCommand;
@@ -126,6 +110,32 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
+
+    // Motor Speed Statistics
+    SmartDashboard.putNumber("Left Front Power (%)", LeftFront.get());
+    SmartDashboard.putNumber("Left Rear Power (%)", LeftRear.get());
+    SmartDashboard.putNumber("Right Front Power (%)", RightFront.get());
+    SmartDashboard.putNumber("Right Rear Power (%)", RightRear.get());
+
+    // Drive Motor Temperature Statistics
+    SmartDashboard.putNumber("Left Front Temperature (C)", LeftFront.getTemperature());
+    SmartDashboard.putNumber("Left Rear Temperature (C)", LeftRear.getTemperature());
+    SmartDashboard.putNumber("Right Front Temperature (C)", RightFront.getTemperature());
+    SmartDashboard.putNumber("Right Rear Temperature (C)", RightRear.getTemperature());
+
+    // Drive Motor Voltage Statistics
+    SmartDashboard.putNumber("Left Front Voltage (V)", LeftFront.getBusVoltage());
+    SmartDashboard.putNumber("Left Rear Voltage (V)", LeftRear.getBusVoltage());
+    SmartDashboard.putNumber("Right Front Voltage (V)", RightFront.getBusVoltage());
+    SmartDashboard.putNumber("Right Rear Voltage (V)", RightRear.getBusVoltage());
+
+    // Coral Motor Statistics
+    SmartDashboard.putNumber("Coral Motor Power (%)", CoralMotor.get());
+    SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
+    SmartDashboard.putNumber("Coral Motor Voltage (V)", CoralMotor.getBusVoltage());
+
+    // Battery Voltage Statistic
+    SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
   }
 
   @Override
@@ -161,18 +171,18 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // Use the right joystick for angle-based control
+    // Use the left joystick for angle-based control
     setDriveMotorsFromJoystick(Controller.getLeftX(), Controller.getLeftY());
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
 
-    // Y Button: intake out, floor motor reverse
+    // A Button: Set Coral motor forwards
     if (Controller.getAButton()) {
       coralMotorSpeed = 0.15;
     }
 
-    // Y Button: intake out, floor motor reverse
+    // Y Button: Reverse coral motor backwards
     if (Controller.getYButton()) {
       coralMotorSpeed = -0.15;
     }
