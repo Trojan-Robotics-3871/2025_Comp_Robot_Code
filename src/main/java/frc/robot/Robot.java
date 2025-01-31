@@ -19,8 +19,6 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
 
-  private PowerDistribution BatteryVolt = new PowerDistribution();
-
   // Tank drive wheels -
   CANVenom LeftRear = new CANVenom(1); // Serial 6701
   CANVenom RightRear = new CANVenom(2); // Serial 6739
@@ -34,6 +32,7 @@ public class Robot extends TimedRobot {
   XboxController Controller = new XboxController(0);
 
   // Create battery Configuration -
+  private PowerDistribution BatteryVolt = new PowerDistribution();
   double BatteryVoltage = BatteryVolt.getVoltage();
 
   // Helper function to calculate joystick angle
