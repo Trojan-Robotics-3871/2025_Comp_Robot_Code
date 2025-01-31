@@ -96,6 +96,12 @@ public class Robot extends TimedRobot {
     // Coral Motor Stats for SmartDashboard
     SmartDashboard.putNumber("Coral Motor (%)", CoralMotor.get());
 
+    SmartDashboard.putNumber("Left Front Temperature (C)", LeftFront.getTemperature());
+    SmartDashboard.putNumber("Left Rear Temperature (C)", LeftRear.getTemperature());
+    SmartDashboard.putNumber("Right Front Temperature (C)", RightFront.getTemperature());
+    SmartDashboard.putNumber("Right Rear Temperature (C)", RightRear.getTemperature());
+    SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
+
     // Create battery configuration for SmartDashboard
     double BatteryVoltage = BatteryVolt.getVoltage();
 
@@ -163,6 +169,11 @@ public class Robot extends TimedRobot {
 
     // Y Button: intake out, floor motor reverse
     if (Controller.getAButton()) {
+      coralMotorSpeed = 0.15;
+    }
+
+    // Y Button: intake out, floor motor reverse
+    if (Controller.getYButton()) {
       coralMotorSpeed = -0.15;
     }
 
