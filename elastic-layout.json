@@ -1,0 +1,490 @@
+{
+  "version": 1.0,
+  "grid_size": 128,
+  "tabs": [
+    {
+      "name": "Teleoperated",
+      "grid_layout": {
+        "layouts": [
+          {
+            "title": "VENOM Motors - Temperature (C)",
+            "x": 1408.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 512.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": [
+              {
+                "title": "Left Front Temperature (C)",
+                "x": 768.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Front Temperature (C)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Left Rear Temperature (C)",
+                "x": 896.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Rear Temperature (C)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Front Temperature (C)",
+                "x": 896.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Front Temperature (C)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Rear Temperature (C)",
+                "x": 896.0,
+                "y": 384.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Rear Temperature (C)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Robot Information",
+            "x": 128.0,
+            "y": 0.0,
+            "width": 384.0,
+            "height": 256.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "LEFT"
+            },
+            "children": [
+              {
+                "title": "Battery Voltage (V)",
+                "x": 0.0,
+                "y": 256.0,
+                "width": 256.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Battery Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Joystick Info",
+            "x": 128.0,
+            "y": 256.0,
+            "width": 384.0,
+            "height": 256.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": [
+              {
+                "title": "Joystick Angle",
+                "x": 128.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Joystick Angle",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "Joystick X",
+                "x": 128.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Joystick X",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "Joystick Y",
+                "x": 128.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Joystick Y",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "show_submit_button": false
+                }
+              }
+            ]
+          },
+          {
+            "title": "Coral Motor Statistics",
+            "x": 640.0,
+            "y": 0.0,
+            "width": 384.0,
+            "height": 384.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "LEFT"
+            },
+            "children": [
+              {
+                "title": "Speed (%)",
+                "x": 128.0,
+                "y": 256.0,
+                "width": 256.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Coral Motor Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -0.15,
+                  "max_value": 0.15,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Temperature (C)",
+                "x": 128.0,
+                "y": 384.0,
+                "width": 256.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Coral Motor Temperature (C)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Voltage (V)",
+                "x": 128.0,
+                "y": 384.0,
+                "width": 256.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Coral Motor Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 3,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Joystick Power Info",
+            "x": 128.0,
+            "y": 512.0,
+            "width": 384.0,
+            "height": 256.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": [
+              {
+                "title": "Left Power (%)",
+                "x": 768.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Power (%)",
+                "x": 768.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          },
+          {
+            "title": "VENOM Motors - Power (%)",
+            "x": 1152.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 512.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": [
+              {
+                "title": "Left Front Power (%)",
+                "x": 1408.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Front Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Front Power (%)",
+                "x": 1280.0,
+                "y": 128.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Front Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Left Rear Power (%)",
+                "x": 1408.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Rear Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Rear Power (%)",
+                "x": 1408.0,
+                "y": 256.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Rear Power (%)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Pneumatics Hub",
+            "x": 640.0,
+            "y": 512.0,
+            "width": 384.0,
+            "height": 256.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": []
+          },
+          {
+            "title": "VENOM Motors - Voltage (V)",
+            "x": 1664.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 512.0,
+            "type": "List Layout",
+            "properties": {
+              "label_position": "TOP"
+            },
+            "children": [
+              {
+                "title": "Left Front Voltage (V)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Front Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Left Rear Voltage (V)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Left Rear Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Front Voltage (V)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Front Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Right Rear Voltage (V)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Right Rear Voltage (V)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
+          }
+        ],
+        "containers": []
+      }
+    },
+    {
+      "name": "Autonomous",
+      "grid_layout": {
+        "layouts": [],
+        "containers": []
+      }
+    }
+  ]
+}
