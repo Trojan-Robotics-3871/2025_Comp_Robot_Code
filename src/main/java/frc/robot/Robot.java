@@ -122,15 +122,16 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Right Front Temperature (C)", RightFront.getTemperature());
     SmartDashboard.putNumber("Right Rear Temperature (C)", RightRear.getTemperature());
 
-    // Drive Motor Voltage Statistics
-    SmartDashboard.putNumber("Left Front Voltage (V)", LeftFront.getBusVoltage());
-    SmartDashboard.putNumber("Left Rear Voltage (V)", LeftRear.getBusVoltage());
-    SmartDashboard.putNumber("Right Front Voltage (V)", RightFront.getBusVoltage());
-    SmartDashboard.putNumber("Right Rear Voltage (V)", RightRear.getBusVoltage());
+    // Drive Motor Current Statistics
+    SmartDashboard.putNumber("Left Front Current (A)", LeftFront.getOutputCurrent());
+    SmartDashboard.putNumber("Left Rear Current (A)", LeftRear.getOutputCurrent());
+    SmartDashboard.putNumber("Right Front Current (A)", RightFront.getOutputCurrent());
+    SmartDashboard.putNumber("Right Rear Current (A)", RightRear.getOutputCurrent());
 
     // Coral Motor Statistics
     SmartDashboard.putNumber("Coral Motor Power (%)", CoralMotor.get());
     SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
+    SmartDashboard.putNumber("Coral Motor Current (A)", CoralMotor.getOutputCurrent());
     SmartDashboard.putNumber("Coral Motor Voltage (V)", CoralMotor.getBusVoltage());
 
     // Battery Voltage Statistic

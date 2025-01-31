@@ -182,7 +182,7 @@
             "x": 640.0,
             "y": 0.0,
             "width": 384.0,
-            "height": 384.0,
+            "height": 512.0,
             "type": "List Layout",
             "properties": {
               "label_position": "LEFT"
@@ -219,6 +219,24 @@
                   "data_type": "double",
                   "min_value": -1.0,
                   "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              },
+              {
+                "title": "Current (A)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Voltage View",
+                "properties": {
+                  "topic": "/SmartDashboard/Coral Motor Current (A)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": 4.0,
+                  "max_value": 13.0,
                   "divisions": 5,
                   "inverted": false,
                   "orientation": "horizontal"
@@ -391,7 +409,7 @@
             "children": []
           },
           {
-            "title": "VENOM Motors - Voltage (V)",
+            "title": "VENOM Motors - Current (A)",
             "x": 1664.0,
             "y": 0.0,
             "width": 256.0,
@@ -402,14 +420,14 @@
             },
             "children": [
               {
-                "title": "Left Front Voltage (V)",
+                "title": "Left Front Current (A)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Left Front Voltage (V)",
+                  "topic": "/SmartDashboard/Left Front Current (A)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -420,14 +438,14 @@
                 }
               },
               {
-                "title": "Left Rear Voltage (V)",
+                "title": "Left Rear Current (A)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Left Rear Voltage (V)",
+                  "topic": "/SmartDashboard/Left Rear Current (A)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -438,14 +456,14 @@
                 }
               },
               {
-                "title": "Right Front Voltage (V)",
+                "title": "Right Front Current (A)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Right Front Voltage (V)",
+                  "topic": "/SmartDashboard/Right Front Current (A)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -456,14 +474,14 @@
                 }
               },
               {
-                "title": "Right Rear Voltage (V)",
+                "title": "Right Rear Current (A)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Right Rear Voltage (V)",
+                  "topic": "/SmartDashboard/Right Rear Current (A)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
