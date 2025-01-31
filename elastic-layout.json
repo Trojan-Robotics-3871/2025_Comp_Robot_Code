@@ -252,7 +252,7 @@
             "height": 256.0,
             "type": "List Layout",
             "properties": {
-              "label_position": "TOP"
+              "label_position": "LEFT"
             },
             "children": [
               {
