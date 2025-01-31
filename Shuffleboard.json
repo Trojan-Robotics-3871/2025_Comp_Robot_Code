@@ -251,6 +251,18 @@
                   "Visuals/Num tick marks": 2,
                   "Visuals/Show text": true,
                   "Visuals/Orientation": "HORIZONTAL"
+                },
+                "2,2": {
+                  "_type": "Voltage View",
+                  "_source0": "network_table:///SmartDashboard/Coral Motor Current (A)",
+                  "_title": "Current (A)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": 0.0,
+                  "Range/Max": 5.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Orientation": "HORIZONTAL",
+                  "Visuals/Number of tick marks": 5
                 }
               }
             }
@@ -331,17 +343,17 @@
             ],
             "content": {
               "_type": "Grid Layout",
-              "_title": "VENOM Motors - Voltage (V)",
+              "_title": "VENOM Motors - Current (A)",
               "_glyph": 149,
               "_showGlyph": false,
               "Layout/Number of columns": 3,
               "Layout/Number of rows": 3,
               "Layout/Label position": "BOTTOM",
               "_children": {
-                "0,0": {
+                "0,1": {
                   "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Left Front Voltage (V)",
-                  "_title": "Left Front (V)",
+                  "_source0": "network_table:///SmartDashboard/Left Rear Current (A)",
+                  "_title": "Left Rear (A)",
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
@@ -352,20 +364,8 @@
                 },
                 "1,0": {
                   "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Left Rear Voltage (V)",
-                  "_title": "Left Rear (V)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 5.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
-                },
-                "0,1": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Right Front Voltage (V)",
-                  "_title": "Right Front (V)",
+                  "_source0": "network_table:///SmartDashboard/Right Front Current (A)",
+                  "_title": "Right Front (A)",
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
@@ -376,8 +376,20 @@
                 },
                 "1,1": {
                   "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Right Rear Voltage (V)",
-                  "_title": "Right Rear (V)",
+                  "_source0": "network_table:///SmartDashboard/Right Rear Current (A)",
+                  "_title": "Right Rear (A)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": 0.0,
+                  "Range/Max": 5.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Orientation": "HORIZONTAL",
+                  "Visuals/Number of tick marks": 5
+                },
+                "0,0": {
+                  "_type": "Voltage View",
+                  "_source0": "network_table:///SmartDashboard/Left Front Current (A)",
+                  "_title": "Left Front (A)",
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
