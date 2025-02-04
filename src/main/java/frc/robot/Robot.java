@@ -3,10 +3,12 @@ package frc.robot;
 
 // WPILib Imports
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticHub;
@@ -21,6 +23,12 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
 
+  private static final String AutonomousA = "Autonomous Middle";
+  private static final String AutonomousB = "Autonomous Left";
+  private static final String AutonomousC = "Autonomous Right";
+  private String m_autoSelected;
+  private final SendableChooser<String> m_chooser = new SendableChooser<>();
+
   // Tank drive wheels -
   CANVenom LeftRear = new CANVenom(1); // Serial 6701
   CANVenom RightRear = new CANVenom(2); // Serial 6739
@@ -30,12 +38,12 @@ public class Robot extends TimedRobot {
   // Spark Motors -
   SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
 
-   // Create pneumatics controllers -
-   private static final int PH_CAN_ID = 11;
-   PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
-   public static int forwardChannel1 = 0;
-   public static int reverseChannel1 = 1;
-   DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
+  // Create pneumatics controllers -
+  private static final int PH_CAN_ID = 11;
+  PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
+  public static int forwardChannel1 = 0;
+  public static int reverseChannel1 = 1;
+  DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
 
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
@@ -113,6 +121,12 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+
+    // Configure autonomous options
+    m_chooser.setDefaultOption("Autonomous Middle", AutonomousA);
+    m_chooser.addOption("Autonomous Left", AutonomousB);
+    m_chooser.addOption("Autonomous Right", AutonomousC);
+    SmartDashboard.putData("Auto choices", m_chooser);
   }
 
   @Override
@@ -145,6 +159,21 @@ public class Robot extends TimedRobot {
 
     // Battery Voltage Statistic
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
+
+    // Update SmartDashboard if compressor is actively running
+    boolean isCompressorRunning = m_ph.getCompressor();
+    SmartDashboard.putBoolean("Compressor Running", isCompressorRunning);
+
+    // Gets the Compressor Current
+    SmartDashboard.putNumber("Compressor Current (A)", m_ph.getCompressorCurrent());
+
+
+    // Get the current state of the solenoid
+    DoubleSolenoid.Value solenoidState = m_doubleSolenoid.get();
+
+    // Update the SmartDashboard with a boolean for the solenoid state
+    boolean isSolenoidUp = (solenoidState == DoubleSolenoid.Value.kForward);
+    SmartDashboard.putBoolean("Solenoid Up", isSolenoidUp);
   }
 
   @Override
@@ -159,16 +188,43 @@ public class Robot extends TimedRobot {
     RightRear.follow(RightFront);
   }
 
+  private Timer m_autonomousTimer = new Timer(); // Timer to track elapsed time
+
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.schedule();
-    }
+    m_autoSelected = m_chooser.getSelected();
+    System.out.println("Auto selected: " + m_autoSelected);
+
+    m_autonomousTimer.reset();
+    m_autonomousTimer.start();
   }
 
   @Override
   public void autonomousPeriodic() {
+    double elapsedTime = m_autonomousTimer.get(); // Get elapsed time
+
+    // Switch based on selected autonomous mode
+    switch (m_autoSelected) {
+      case AutonomousA:
+        AutonomousA(elapsedTime);
+        break;
+      case AutonomousC:
+        AutonomousB(elapsedTime);
+        break;
+      case AutonomousB:
+      default:
+        AutonomousC(elapsedTime);
+        break;
+    }
+  }
+
+  private void AutonomousA(double elapsedTime) {
+  }
+
+  private void AutonomousB(double elapsedTime) {
+  }
+
+  private void AutonomousC(double elapsedTime) {
   }
 
   @Override
