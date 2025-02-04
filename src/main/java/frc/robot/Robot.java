@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticHub;
 
 // Venom Imports -
 import com.playingwithfusion.CANVenom;
@@ -27,6 +29,13 @@ public class Robot extends TimedRobot {
 
   // Spark Motors -
   SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
+
+   // Create pneumatics controllers -
+   private static final int PH_CAN_ID = 11;
+   PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
+   public static int forwardChannel1 = 0;
+   public static int reverseChannel1 = 1;
+   DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
 
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
