@@ -174,6 +174,156 @@
                   "data_type": "double",
                   "show_submit_button": false
                 }
+              },
+              {
+                "title": "Auto choices",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "ComboBox Chooser",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices",
+                  "period": 0.06,
+                  "sort_options": false
+                }
+              },
+              {
+                "title": "Auto choices",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "ComboBox Chooser",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices",
+                  "period": 0.06,
+                  "sort_options": false
+                }
+              },
+              {
+                "title": "selected",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/selected",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "options",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/options",
+                  "period": 0.06,
+                  "data_type": "string[]",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "Auto choices",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "ComboBox Chooser",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices",
+                  "period": 0.06,
+                  "sort_options": false
+                }
+              },
+              {
+                "title": "Auto choices",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "ComboBox Chooser",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices",
+                  "period": 0.06,
+                  "sort_options": false
+                }
+              },
+              {
+                "title": "active",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/active",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "active",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/active",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "active",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/active",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "active",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/active",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
+              },
+              {
+                "title": "active",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Text Display",
+                "properties": {
+                  "topic": "/SmartDashboard/Auto choices/active",
+                  "period": 0.06,
+                  "data_type": "string",
+                  "show_submit_button": false
+                }
               }
             ]
           },
@@ -182,7 +332,7 @@
             "x": 640.0,
             "y": 0.0,
             "width": 384.0,
-            "height": 512.0,
+            "height": 384.0,
             "type": "List Layout",
             "properties": {
               "label_position": "LEFT"
@@ -219,24 +369,6 @@
                   "data_type": "double",
                   "min_value": -1.0,
                   "max_value": 1.0,
-                  "divisions": 5,
-                  "inverted": false,
-                  "orientation": "horizontal"
-                }
-              },
-              {
-                "title": "Current (A)",
-                "x": 0.0,
-                "y": 0.0,
-                "width": 128.0,
-                "height": 128.0,
-                "type": "Voltage View",
-                "properties": {
-                  "topic": "/SmartDashboard/Coral Motor Current (A)",
-                  "period": 0.06,
-                  "data_type": "double",
-                  "min_value": 4.0,
-                  "max_value": 13.0,
                   "divisions": 5,
                   "inverted": false,
                   "orientation": "horizontal"
@@ -406,10 +538,63 @@
             "properties": {
               "label_position": "TOP"
             },
-            "children": []
+            "children": [
+              {
+                "title": "Compressor Running",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Boolean Box",
+                "properties": {
+                  "topic": "/SmartDashboard/Compressor Running",
+                  "period": 0.06,
+                  "data_type": "boolean",
+                  "true_color": 4283215696,
+                  "false_color": 4294198070,
+                  "true_icon": "None",
+                  "false_icon": "None"
+                }
+              },
+              {
+                "title": "Solenoid Up",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Boolean Box",
+                "properties": {
+                  "topic": "/SmartDashboard/Solenoid Up",
+                  "period": 0.06,
+                  "data_type": "boolean",
+                  "true_color": 4283215696,
+                  "false_color": 4294198070,
+                  "true_icon": "None",
+                  "false_icon": "None"
+                }
+              },
+              {
+                "title": "Compressor Current (A)",
+                "x": 0.0,
+                "y": 0.0,
+                "width": 128.0,
+                "height": 128.0,
+                "type": "Number Bar",
+                "properties": {
+                  "topic": "/SmartDashboard/Compressor Current (A)",
+                  "period": 0.06,
+                  "data_type": "double",
+                  "min_value": -1.0,
+                  "max_value": 1.0,
+                  "divisions": 5,
+                  "inverted": false,
+                  "orientation": "horizontal"
+                }
+              }
+            ]
           },
           {
-            "title": "VENOM Motors - Current (A)",
+            "title": "VENOM Motors - Voltage (V)",
             "x": 1664.0,
             "y": 0.0,
             "width": 256.0,
@@ -420,14 +605,14 @@
             },
             "children": [
               {
-                "title": "Left Front Current (A)",
+                "title": "Left Front Voltage (V)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Left Front Current (A)",
+                  "topic": "/SmartDashboard/Left Front Voltage (V)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -438,14 +623,14 @@
                 }
               },
               {
-                "title": "Left Rear Current (A)",
+                "title": "Left Rear Voltage (V)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Left Rear Current (A)",
+                  "topic": "/SmartDashboard/Left Rear Voltage (V)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -456,14 +641,14 @@
                 }
               },
               {
-                "title": "Right Front Current (A)",
+                "title": "Right Front Voltage (V)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Right Front Current (A)",
+                  "topic": "/SmartDashboard/Right Front Voltage (V)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -474,14 +659,14 @@
                 }
               },
               {
-                "title": "Right Rear Current (A)",
+                "title": "Right Rear Voltage (V)",
                 "x": 0.0,
                 "y": 0.0,
                 "width": 128.0,
                 "height": 128.0,
                 "type": "Voltage View",
                 "properties": {
-                  "topic": "/SmartDashboard/Right Rear Current (A)",
+                  "topic": "/SmartDashboard/Right Rear Voltage (V)",
                   "period": 0.06,
                   "data_type": "double",
                   "min_value": 4.0,
@@ -494,7 +679,21 @@
             ]
           }
         ],
-        "containers": []
+        "containers": [
+          {
+            "title": "Auto choices",
+            "x": 768.0,
+            "y": 384.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "ComboBox Chooser",
+            "properties": {
+              "topic": "/SmartDashboard/Auto choices",
+              "period": 0.06,
+              "sort_options": false
+            }
+          }
+        ]
       }
     },
     {
