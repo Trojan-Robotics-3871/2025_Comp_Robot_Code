@@ -185,20 +185,7 @@
               "Layout/Number of rows": 3,
               "Layout/Label position": "BOTTOM",
               "_children": {
-                "0,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Compressor Current (A)",
-                  "_title": "Compressor Current",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "0,1": {
+                "0,2": {
                   "_type": "Boolean Box",
                   "_source0": "network_table:///SmartDashboard/Compressor Running",
                   "_title": "Compressor Active",
@@ -206,6 +193,18 @@
                   "_showGlyph": false,
                   "Colors/Color when true": "#7CFC00FF",
                   "Colors/Color when false": "#8B0000FF"
+                },
+                "0,1": {
+                  "_type": "Voltage View",
+                  "_source0": "network_table:///SmartDashboard/Compressor Current (A)",
+                  "_title": "Compressor Current (A)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": 0.0,
+                  "Range/Max": 13.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Orientation": "HORIZONTAL",
+                  "Visuals/Number of tick marks": 5
                 },
                 "1,1": {
                   "_type": "Boolean Box",
@@ -291,7 +290,7 @@
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 5.0,
+                  "Range/Max": 13.0,
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
@@ -389,7 +388,7 @@
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 5.0,
+                  "Range/Max": 13.0,
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
@@ -401,7 +400,7 @@
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 5.0,
+                  "Range/Max": 13.0,
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
@@ -413,7 +412,7 @@
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 5.0,
+                  "Range/Max": 13.0,
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
@@ -425,7 +424,7 @@
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 5.0,
+                  "Range/Max": 13.0,
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
