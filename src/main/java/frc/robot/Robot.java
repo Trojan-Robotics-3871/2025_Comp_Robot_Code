@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticHub;
+import edu.wpi.first.cameraserver.CameraServer;
 
 // Venom Imports -
 import com.playingwithfusion.CANVenom;
@@ -121,6 +122,9 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+
+    // Start camera, plugged into the Roborio -
+    CameraServer.startAutomaticCapture();
 
     // Configure autonomous options
     m_chooser.setDefaultOption("Autonomous Middle", AutonomousA);
