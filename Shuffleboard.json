@@ -156,21 +156,6 @@
               "Layout/Number of rows": 3,
               "Layout/Label position": "BOTTOM",
               "_children": {
-                "1,0": {
-                  "_type": "Camera Stream",
-                  "_source0": "camera_server://USB Camera 0",
-                  "_title": "Robot Camera - Climbing POV",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Crosshair/Show crosshair": true,
-                  "Crosshair/Crosshair color": "#FFFFFFFF",
-                  "Controls/Show controls": true,
-                  "Controls/Rotation": "NONE",
-                  "compression": 100.0,
-                  "fps": 30,
-                  "imageWidth": 0,
-                  "imageHeight": 0
-                },
                 "1,1": {
                   "_type": "Voltage View",
                   "_source0": "network_table:///SmartDashboard/Battery Voltage (V)",
@@ -182,6 +167,21 @@
                   "Range/Center": 0.0,
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
+                },
+                "1,0": {
+                  "_type": "Camera Stream",
+                  "_source0": "camera_server://limelight",
+                  "_title": "limelight",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Crosshair/Show crosshair": true,
+                  "Crosshair/Crosshair color": "#FFFFFFFF",
+                  "Controls/Show controls": true,
+                  "Controls/Rotation": "NONE",
+                  "compression": -1.0,
+                  "fps": -1,
+                  "imageWidth": -1,
+                  "imageHeight": -1
                 }
               }
             }
@@ -445,6 +445,45 @@
                   "Colors/Color when false": "#8B0000FF"
                 }
               }
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              2
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///CameraPublisher/limelight",
+              "_title": "/CameraPublisher/limelight",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Limelight Stream",
+              "_title": "/SmartDashboard/Limelight Stream",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/limelight_Interface",
+              "_title": "/SmartDashboard/limelight_Interface",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }

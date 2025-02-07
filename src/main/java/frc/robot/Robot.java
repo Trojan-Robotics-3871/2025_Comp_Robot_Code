@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticHub;
-import edu.wpi.first.cameraserver.CameraServer;
 
 // Venom Imports -
 import com.playingwithfusion.CANVenom;
@@ -123,9 +122,6 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_robotContainer = new RobotContainer();
 
-    // Start camera, plugged into the Roborio -
-    CameraServer.startAutomaticCapture();
-
     // Configure autonomous options
     m_chooser.setDefaultOption("Autonomous Middle", AutonomousA);
     m_chooser.addOption("Autonomous Left", AutonomousB);
@@ -170,7 +166,6 @@ public class Robot extends TimedRobot {
 
     // Gets the Compressor Current
     SmartDashboard.putNumber("Compressor Current (A)", m_ph.getCompressorCurrent());
-
 
     // Get the current state of the solenoid
     DoubleSolenoid.Value solenoidState = m_doubleSolenoid.get();
@@ -248,12 +243,12 @@ public class Robot extends TimedRobot {
 
     // A Button: Set Coral motor forwards
     if (Controller.getAButton()) {
-      coralMotorSpeed = 0.15;
+      coralMotorSpeed = 0.10;
     }
 
     // Y Button: Reverse coral motor backwards
     if (Controller.getYButton()) {
-      coralMotorSpeed = -0.15;
+      coralMotorSpeed = -0.25;
     }
 
     // Set the motor speed based on the input

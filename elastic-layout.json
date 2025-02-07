@@ -562,15 +562,21 @@
             }
           },
           {
-            "title": "USB Camera 0",
+            "title": "limelight",
             "x": 1152.0,
             "y": 512.0,
-            "width": 384.0,
-            "height": 256.0,
+            "width": 512.0,
+            "height": 384.0,
             "type": "Camera Stream",
             "properties": {
-              "topic": "/CameraPublisher/USB Camera 0",
-              "period": 0.06
+              "topic": "/CameraPublisher/limelight",
+              "period": 0.06,
+              "compression": 20,
+              "fps": 30,
+              "resolution": [
+                0.0,
+                0.0
+              ]
             }
           }
         ]
