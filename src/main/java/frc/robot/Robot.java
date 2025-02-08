@@ -30,10 +30,10 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   // Tank drive wheels -
-  CANVenom LeftRear = new CANVenom(1); // Serial 6701
-  CANVenom RightRear = new CANVenom(2); // Serial 6739
-  CANVenom LeftFront = new CANVenom(3); // Serial 6682
-  CANVenom RightFront = new CANVenom(4); // Serial 6725
+  CANVenom RightFront = new CANVenom(1); // Serial 6701
+  CANVenom LeftFront = new CANVenom(2); // Serial 6739
+  CANVenom RightRear = new CANVenom(3); // Serial 6682
+  CANVenom LeftRear = new CANVenom(4); // Serial 6725
 
   // Spark Motors -
   SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
@@ -100,10 +100,10 @@ public class Robot extends TimedRobot {
     rightSpeed = Math.max(-maxSpeed, Math.min(rightSpeed, maxSpeed));
 
     // Set motor speeds and invert direction for follower motors
-    LeftFront.set(leftSpeed);
-    LeftRear.set(-leftSpeed); // Invert direction for LeftRear motor
-    RightFront.set(rightSpeed);
-    RightRear.set(-rightSpeed); // Invert direction for RightRear motor
+    LeftFront.set(-leftSpeed);
+    LeftRear.set(leftSpeed); // Invert direction for LeftRear motor
+    RightFront.set(-rightSpeed);
+    RightRear.set(rightSpeed); // Invert direction for RightRear motor
 
     // Joystick Statistics
     SmartDashboard.putNumber("Joystick X", x);
@@ -219,10 +219,10 @@ public class Robot extends TimedRobot {
 
   private void AutonomousA(double elapsedTime) {
     if (elapsedTime >= 0 && elapsedTime < 1.5) {
-      LeftFront.set(0.4);
-      LeftRear.set(-0.4);
-      RightFront.set(0.4);
-      RightRear.set(-0.4);
+      LeftFront.set(-0.4);
+      LeftRear.set(0.4);
+      RightFront.set(-0.4);
+      RightRear.set(0.4);
     }
     if (elapsedTime >= 1.5 && elapsedTime < 2) {
       LeftFront.set(0);
@@ -233,8 +233,17 @@ public class Robot extends TimedRobot {
     if (elapsedTime >= 2 && elapsedTime < 2.5) {
       CoralMotor.set(0.15);
     }
+    if (elapsedTime >= 2.5 && elapsedTime < 3) {
+      CoralMotor.set(0);
+    }
+    if (elapsedTime >= 3 && elapsedTime < 6.5) {
+      LeftFront.set(0.25);
+      LeftRear.set(-0.25);
+      RightFront.set(0.4);
+      RightRear.set(-0.4);
+    }
   // Stop all actions after 3 seconds
-  else if (elapsedTime >= 2.5) {
+  else if (elapsedTime >= 6.5) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
       RightFront.set(0);
@@ -259,7 +268,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // Use the left joystick for angle-based control
-    setDriveMotorsFromJoystick(Controller.getLeftX(), -Controller.getLeftY());
+    setDriveMotorsFromJoystick(-Controller.getLeftX(), -Controller.getLeftY());
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
