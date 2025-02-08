@@ -218,7 +218,30 @@ public class Robot extends TimedRobot {
   }
 
   private void AutonomousA(double elapsedTime) {
+    if (elapsedTime >= 0 && elapsedTime < 1.5) {
+      LeftFront.set(0.4);
+      LeftRear.set(-0.4);
+      RightFront.set(0.4);
+      RightRear.set(-0.4);
+    }
+    if (elapsedTime >= 1.5 && elapsedTime < 2) {
+      LeftFront.set(0);
+      LeftRear.set(0);
+      RightFront.set(0);
+      RightRear.set(0);
+    }
+    if (elapsedTime >= 2 && elapsedTime < 2.5) {
+      CoralMotor.set(0.15);
+    }
+  // Stop all actions after 3 seconds
+  else if (elapsedTime >= 2.5) {
+      LeftFront.set(0);
+      LeftRear.follow(LeftFront);
+      RightFront.set(0);
+      RightRear.follow(RightFront);
+      CoralMotor.set(0);
   }
+}
 
   private void AutonomousB(double elapsedTime) {
   }
@@ -236,14 +259,14 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // Use the left joystick for angle-based control
-    setDriveMotorsFromJoystick(Controller.getLeftX(), Controller.getLeftY());
+    setDriveMotorsFromJoystick(Controller.getLeftX(), -Controller.getLeftY());
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
 
     // A Button: Set Coral motor forwards
     if (Controller.getAButton()) {
-      coralMotorSpeed = 0.10;
+      coralMotorSpeed = 0.15;
     }
 
     // Y Button: Reverse coral motor backwards
