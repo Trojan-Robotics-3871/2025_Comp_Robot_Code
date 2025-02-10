@@ -218,31 +218,36 @@ public class Robot extends TimedRobot {
   }
 
   private void AutonomousA(double elapsedTime) {
+    // 0 to 1.5 seconds, drive motors forward at 40% speed
     if (elapsedTime >= 0 && elapsedTime < 1.5) {
       LeftFront.set(-0.4);
       LeftRear.set(0.4);
       RightFront.set(-0.4);
       RightRear.set(0.4);
     }
+    // 1.5 to 2 seconds, drive motors turn off
     if (elapsedTime >= 1.5 && elapsedTime < 2) {
       LeftFront.set(0);
       LeftRear.set(0);
       RightFront.set(0);
       RightRear.set(0);
     }
+    // 2 to 2.5 seconds, Coral Motor turns on at 15%
     if (elapsedTime >= 2 && elapsedTime < 2.5) {
       CoralMotor.set(0.15);
     }
+    // 2.5 to 3 seconds, Coral Motor turns off
     if (elapsedTime >= 2.5 && elapsedTime < 3) {
       CoralMotor.set(0);
     }
+    // 3 to 6.5 seconds, drive motors start 180 degree turn
     if (elapsedTime >= 3 && elapsedTime < 6.5) {
       LeftFront.set(0.25);
       LeftRear.set(-0.25);
       RightFront.set(0.4);
       RightRear.set(-0.4);
     }
-  // Stop all actions after 3 seconds
+  // Disable all motors after 6.5 seconds
   else if (elapsedTime >= 6.5) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
