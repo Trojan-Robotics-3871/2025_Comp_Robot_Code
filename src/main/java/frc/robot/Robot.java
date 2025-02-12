@@ -161,18 +161,18 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
 
     // Update SmartDashboard if compressor is actively running
-    boolean isCompressorRunning = m_ph.getCompressor();
-    SmartDashboard.putBoolean("Compressor Running", isCompressorRunning);
+    // boolean isCompressorRunning = m_ph.getCompressor();
+   //  SmartDashboard.putBoolean("Compressor Running", isCompressorRunning);
 
     // Gets the Compressor Current
-    SmartDashboard.putNumber("Compressor Current (A)", m_ph.getCompressorCurrent());
+    // SmartDashboard.putNumber("Compressor Current (A)", m_ph.getCompressorCurrent());
 
     // Get the current state of the solenoid
-    DoubleSolenoid.Value solenoidState = m_doubleSolenoid.get();
+    // DoubleSolenoid.Value solenoidState = m_doubleSolenoid.get();
 
     // Update the SmartDashboard with a boolean for the solenoid state
-    boolean isSolenoidUp = (solenoidState == DoubleSolenoid.Value.kForward);
-    SmartDashboard.putBoolean("Solenoid Up", isSolenoidUp);
+    // boolean isSolenoidUp = (solenoidState == DoubleSolenoid.Value.kForward);
+    // SmartDashboard.putBoolean("Solenoid Up", isSolenoidUp);
   }
 
   @Override
@@ -240,15 +240,8 @@ public class Robot extends TimedRobot {
     if (elapsedTime >= 2.5 && elapsedTime < 3) {
       CoralMotor.set(0);
     }
-    // 3 to 6.5 seconds, drive motors start 180 degree turn
-    if (elapsedTime >= 3 && elapsedTime < 6.5) {
-      LeftFront.set(0.25);
-      LeftRear.set(-0.25);
-      RightFront.set(0.4);
-      RightRear.set(-0.4);
-    }
   // Disable all motors after 6.5 seconds
-  else if (elapsedTime >= 6.5) {
+  else if (elapsedTime >= 3) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
       RightFront.set(0);
