@@ -10,8 +10,6 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.PneumaticHub;
 
 // Venom Imports -
 import com.playingwithfusion.CANVenom;
@@ -37,13 +35,6 @@ public class Robot extends TimedRobot {
 
   // Spark Motors -
   SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
-
-  // Create pneumatics controllers -
-  private static final int PH_CAN_ID = 11;
-  PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
-  public static int forwardChannel1 = 0;
-  public static int reverseChannel1 = 1;
-  DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
 
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
@@ -159,20 +150,6 @@ public class Robot extends TimedRobot {
 
     // Battery Voltage Statistic
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
-
-    // Update SmartDashboard if compressor is actively running
-    // boolean isCompressorRunning = m_ph.getCompressor();
-   //  SmartDashboard.putBoolean("Compressor Running", isCompressorRunning);
-
-    // Gets the Compressor Current
-    // SmartDashboard.putNumber("Compressor Current (A)", m_ph.getCompressorCurrent());
-
-    // Get the current state of the solenoid
-    // DoubleSolenoid.Value solenoidState = m_doubleSolenoid.get();
-
-    // Update the SmartDashboard with a boolean for the solenoid state
-    // boolean isSolenoidUp = (solenoidState == DoubleSolenoid.Value.kForward);
-    // SmartDashboard.putBoolean("Solenoid Up", isSolenoidUp);
   }
 
   @Override
@@ -240,7 +217,7 @@ public class Robot extends TimedRobot {
     if (elapsedTime >= 2.5 && elapsedTime < 3) {
       CoralMotor.set(0);
     }
-  // Disable all motors after 6.5 seconds
+  // Disable all motors after 3 seconds
   else if (elapsedTime >= 3) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
@@ -271,12 +248,17 @@ public class Robot extends TimedRobot {
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
 
-    // A Button: Set Coral motor forwards
+    // A Button: Set Coral Motor forwards 15% (SLOW)
     if (Controller.getAButton()) {
       coralMotorSpeed = 0.15;
     }
 
-    // Y Button: Reverse coral motor backwards
+    // B Button: Set Coral Motor forwards 26% (FAST)
+    if (Controller.getBButton()) {
+      coralMotorSpeed = 0.26;
+    }
+
+    // Y Button: Reverse coral motor backwards 25%
     if (Controller.getYButton()) {
       coralMotorSpeed = -0.25;
     }
