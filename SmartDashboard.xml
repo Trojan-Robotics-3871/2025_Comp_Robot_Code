@@ -1,0 +1,84 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="Auto choices" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="194" y="20"/>
+	</widget>
+	<widget field="Right Rear Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="340" y="40"/>
+	</widget>
+	<widget field="Coral Motor Voltage (V)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="340" y="20"/>
+	</widget>
+	<widget field="Coral Motor Current (A)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="340" y="0"/>
+	</widget>
+	<widget field="Left Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="184" y="0"/>
+	</widget>
+	<widget field="Joystick Y" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="400"/>
+	</widget>
+	<widget field="Left Front Current (A)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="380"/>
+	</widget>
+	<widget field="Right Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="360"/>
+	</widget>
+	<widget field="limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="340"/>
+	</widget>
+	<widget field="Coral Motor Temperature (C)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="320"/>
+	</widget>
+	<widget field="Joystick Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="300"/>
+	</widget>
+	<widget field="Right Rear Current (A)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="280"/>
+	</widget>
+	<widget field="Right Front Current (A)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="260"/>
+	</widget>
+	<widget field="Joystick X" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="240"/>
+	</widget>
+	<widget field="Left Front Temperature (C)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="220"/>
+	</widget>
+	<widget field="Battery Voltage (V)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="200"/>
+	</widget>
+	<widget field="limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="180"/>
+	</widget>
+	<widget field="Left Rear Current (A)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="160"/>
+	</widget>
+	<widget field="Right Front Temperature (C)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="140"/>
+	</widget>
+	<widget field="Right Rear Temperature (C)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="120"/>
+	</widget>
+	<widget field="Right Front Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="100"/>
+	</widget>
+	<widget field="Left Rear Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="80"/>
+	</widget>
+	<widget field="Left Rear Temperature (C)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="60"/>
+	</widget>
+	<widget field="limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="40"/>
+	</widget>
+	<widget field="Coral Motor Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="20"/>
+	</widget>
+	<widget field="Left Front Power (%)" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
