@@ -40,8 +40,8 @@ public class Robot extends TimedRobot {
   XboxController Controller = new XboxController(0);
 
   // Create battery Configuration -
-  private PowerDistribution BatteryVolt = new PowerDistribution();
-  double BatteryVoltage = BatteryVolt.getVoltage();
+  private PowerDistribution pdp = new PowerDistribution();
+  double BatteryVoltage = pdp.getVoltage();
 
   // Helper function to calculate joystick angle
   public double getJoystickAngle(double x, double y) {
@@ -113,6 +113,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_robotContainer = new RobotContainer();
 
+    SmartDashboard.putData("PDP", pdp);
+
     // Configure autonomous options
     m_chooser.setDefaultOption("Autonomous Middle", AutonomousA);
     m_chooser.addOption("Autonomous Left", AutonomousB);
@@ -136,17 +138,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Right Front Temperature (C)", RightFront.getTemperature());
     SmartDashboard.putNumber("Right Rear Temperature (C)", RightRear.getTemperature());
 
-    // Drive Motor Current Statistics
-    SmartDashboard.putNumber("Left Front Current (A)", LeftFront.getOutputCurrent());
-    SmartDashboard.putNumber("Left Rear Current (A)", LeftRear.getOutputCurrent());
-    SmartDashboard.putNumber("Right Front Current (A)", RightFront.getOutputCurrent());
-    SmartDashboard.putNumber("Right Rear Current (A)", RightRear.getOutputCurrent());
-
     // Coral Motor Statistics
     SmartDashboard.putNumber("Coral Motor Power (%)", CoralMotor.get());
     SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
-    SmartDashboard.putNumber("Coral Motor Current (A)", CoralMotor.getOutputCurrent());
-    SmartDashboard.putNumber("Coral Motor Voltage (V)", CoralMotor.getBusVoltage());
 
     // Battery Voltage Statistic
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
@@ -217,15 +211,15 @@ public class Robot extends TimedRobot {
     if (elapsedTime >= 2.5 && elapsedTime < 3) {
       CoralMotor.set(0);
     }
-  // Disable all motors after 3 seconds
-  else if (elapsedTime >= 3) {
+    // Disable all motors after 3 seconds
+    else if (elapsedTime >= 3) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
       RightFront.set(0);
       RightRear.follow(RightFront);
       CoralMotor.set(0);
+    }
   }
-}
 
   private void AutonomousB(double elapsedTime) {
   }
