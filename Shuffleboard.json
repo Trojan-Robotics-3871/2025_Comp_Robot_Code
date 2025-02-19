@@ -1,7 +1,7 @@
 {
   "tabPane": [
     {
-      "title": "SmartDashboard",
+      "title": "Drive Station",
       "autoPopulate": true,
       "autoPopulatePrefix": "SmartDashboard/",
       "widgetPane": {
@@ -11,141 +11,10 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "3,0": {
-            "size": [
-              1,
-              2
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Joystick Info",
-              "_glyph": 149,
-              "_showGlyph": false,
-              "Layout/Label position": "BOTTOM",
-              "_children": [
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Joystick Angle",
-                  "_title": "Joystick Angle",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Joystick X",
-                  "_title": "Joystick X",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Joystick Y",
-                  "_title": "Joystick Y",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                }
-              ]
-            }
-          },
-          "0,0": {
-            "size": [
-              3,
-              2
-            ],
-            "content": {
-              "_type": "Grid Layout",
-              "_title": "VENOM Motors - Power (%)",
-              "_glyph": 149,
-              "_showGlyph": false,
-              "Layout/Number of columns": 3,
-              "Layout/Number of rows": 3,
-              "Layout/Label position": "BOTTOM",
-              "_children": {
-                "2,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Left Power (%)",
-                  "_title": "Left Power (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "2,1": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Right Power (%)",
-                  "_title": "Right Power (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "1,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Right Front Power (%)",
-                  "_title": "Right Front (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "1,1": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Right Rear Power (%)",
-                  "_title": "Right Rear (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "0,1": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Left Rear Power (%)",
-                  "_title": "Left Rear (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                },
-                "0,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Left Front Power (%)",
-                  "_title": "Left Front (%)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": -1.0,
-                  "Range/Max": 1.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 5,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "HORIZONTAL"
-                }
-              }
-            }
-          },
           "4,0": {
             "size": [
               3,
-              3
+              4
             ],
             "content": {
               "_type": "Grid Layout",
@@ -156,7 +25,14 @@
               "Layout/Number of rows": 3,
               "Layout/Label position": "BOTTOM",
               "_children": {
-                "1,1": {
+                "1,0": {
+                  "_type": "Basic FMS Info",
+                  "_source0": "network_table:///FMSInfo",
+                  "_title": "FMSInfo",
+                  "_glyph": 148,
+                  "_showGlyph": false
+                },
+                "1,2": {
                   "_type": "Voltage View",
                   "_source0": "network_table:///SmartDashboard/Battery Voltage (V)",
                   "_title": "Battery Voltage",
@@ -168,45 +44,24 @@
                   "Visuals/Orientation": "HORIZONTAL",
                   "Visuals/Number of tick marks": 5
                 },
-                "1,0": {
-                  "_type": "Camera Stream",
-                  "_source0": "camera_server://limelight",
-                  "_title": "limelight",
+                "1,1": {
+                  "_type": "ComboBox Chooser",
+                  "_source0": "network_table:///SmartDashboard/Auto choices",
+                  "_title": "Autonomous Choices",
                   "_glyph": 148,
-                  "_showGlyph": false,
-                  "Crosshair/Show crosshair": true,
-                  "Crosshair/Crosshair color": "#FFFFFFFF",
-                  "Controls/Show controls": true,
-                  "Controls/Rotation": "NONE",
-                  "compression": -1.0,
-                  "fps": -1,
-                  "imageWidth": 0,
-                  "imageHeight": 0
+                  "_showGlyph": false
                 }
               }
             }
           },
-          "3,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "ComboBox Chooser",
-              "_source0": "network_table:///SmartDashboard/Auto choices",
-              "_title": "Auto choices",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "0,2": {
+          "7,0": {
             "size": [
               3,
               2
             ],
             "content": {
               "_type": "Grid Layout",
-              "_title": "Coral Motor Statistics",
+              "_title": "Basic Information",
               "_glyph": 149,
               "_showGlyph": false,
               "Layout/Number of columns": 3,
@@ -214,34 +69,58 @@
               "Layout/Label position": "BOTTOM",
               "_children": {
                 "1,0": {
-                  "_type": "Number Bar",
-                  "_source0": "network_table:///SmartDashboard/Coral Motor Temperature (C)",
-                  "_title": "Temp (C)",
+                  "_type": "Gyro",
+                  "_source0": "network_table:///SmartDashboard/Joystick Angle",
+                  "_title": "Joystick Angle",
                   "_glyph": 148,
                   "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 30.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Num tick marks": 3,
-                  "Visuals/Show text": true,
-                  "Visuals/Orientation": "VERTICAL"
-                },
-                "2,0": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Coral Motor Voltage (V)",
-                  "_title": "Voltage (V)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 13.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
-                },
+                  "Visuals/Major tick spacing": 45.0,
+                  "Visuals/Starting angle": 180.0,
+                  "Visuals/Show tick mark ring": true,
+                  "Visuals/Counter clockwise": false
+                }
+              }
+            }
+          },
+          "0,0": {
+            "size": [
+              4,
+              4
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://limelight",
+              "_title": "Limelight 2 - Camera",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Crosshair/Show crosshair": true,
+              "Crosshair/Crosshair color": "#FFFFFFFF",
+              "Controls/Show controls": true,
+              "Controls/Rotation": "NONE",
+              "compression": -1.0,
+              "fps": -1,
+              "imageWidth": 0,
+              "imageHeight": 0
+            }
+          },
+          "7,2": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "Motor Information",
+              "_glyph": 149,
+              "_showGlyph": false,
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "BOTTOM",
+              "_children": {
                 "0,0": {
                   "_type": "Number Bar",
                   "_source0": "network_table:///SmartDashboard/Coral Motor Power (%)",
-                  "_title": "Speed (%)",
+                  "_title": "Coral Motor (%)",
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": -0.15,
@@ -250,25 +129,27 @@
                   "Visuals/Num tick marks": 2,
                   "Visuals/Show text": true,
                   "Visuals/Orientation": "HORIZONTAL"
-                },
-                "2,2": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Coral Motor Current (A)",
-                  "_title": "Current (A)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 13.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
                 }
               }
             }
-          },
-          "7,0": {
+          }
+        }
+      }
+    },
+    {
+      "title": "Diagnostics",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,2": {
             "size": [
-              2,
+              3,
               2
             ],
             "content": {
@@ -325,7 +206,7 @@
                   "_title": "Right Rear (C)",
                   "_glyph": 148,
                   "_showGlyph": false,
-                  "Range/Min": 0.0,
+                  "Range/Min": -0.0,
                   "Range/Max": 30.0,
                   "Range/Center": 0.0,
                   "Visuals/Num tick marks": 5,
@@ -335,14 +216,147 @@
               }
             }
           },
-          "7,2": {
+          "0,0": {
             "size": [
-              2,
+              3,
               2
             ],
             "content": {
               "_type": "Grid Layout",
-              "_title": "VENOM Motors - Current (A)",
+              "_title": "Venom Motors - Power (%)",
+              "_glyph": 149,
+              "_showGlyph": false,
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "BOTTOM",
+              "_children": {
+                "0,0": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Front Power (%)",
+                  "_title": "Left Front (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "1,0": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Rear Power (%)",
+                  "_title": "Right Front (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "0,1": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Rear Power (%)",
+                  "_title": "Left Rear (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "1,1": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Right Front Power (%)",
+                  "_title": "Right Rear (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "2,0": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Left Power (%)",
+                  "_title": "Left Power (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                },
+                "2,1": {
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Right Power (%)",
+                  "_title": "Right Power (%)",
+                  "_glyph": 148,
+                  "_showGlyph": false,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
+                  "Range/Center": 0.0,
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
+                }
+              }
+            }
+          },
+          "3,0": {
+            "size": [
+              1,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "Joystick Info",
+              "_glyph": 149,
+              "_showGlyph": false,
+              "Layout/Number of columns": 3,
+              "Layout/Number of rows": 3,
+              "Layout/Label position": "BOTTOM",
+              "_children": {
+                "1,0": {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Joystick Angle",
+                  "_title": "Joystick Angle",
+                  "_glyph": 148,
+                  "_showGlyph": false
+                },
+                "1,1": {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Joystick X",
+                  "_title": "Joystick X",
+                  "_glyph": 148,
+                  "_showGlyph": false
+                },
+                "1,2": {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Joystick Y",
+                  "_title": "Joystick Y",
+                  "_glyph": 148,
+                  "_showGlyph": false
+                }
+              }
+            }
+          },
+          "4,0": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Grid Layout",
+              "_title": "Coral Motor Statistics",
               "_glyph": 149,
               "_showGlyph": false,
               "Layout/Number of columns": 3,
@@ -350,113 +364,49 @@
               "Layout/Label position": "BOTTOM",
               "_children": {
                 "0,1": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Left Rear Current (A)",
-                  "_title": "Left Rear (A)",
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Coral Motor Temperature (C)",
+                  "_title": "Temperature (C)",
                   "_glyph": 148,
                   "_showGlyph": false,
                   "Range/Min": 0.0,
-                  "Range/Max": 13.0,
+                  "Range/Max": 30.0,
                   "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
-                },
-                "1,0": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Right Front Current (A)",
-                  "_title": "Right Front (A)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 13.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "VERTICAL"
                 },
                 "1,1": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Right Rear Current (A)",
-                  "_title": "Right Rear (A)",
+                  "_type": "Number Bar",
+                  "_source0": "network_table:///SmartDashboard/Coral Motor Power (%)",
+                  "_title": "Power (%)",
                   "_glyph": 148,
                   "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 13.0,
+                  "Range/Min": -1.0,
+                  "Range/Max": 1.0,
                   "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
-                },
-                "0,0": {
-                  "_type": "Voltage View",
-                  "_source0": "network_table:///SmartDashboard/Left Front Current (A)",
-                  "_title": "Left Front (A)",
-                  "_glyph": 148,
-                  "_showGlyph": false,
-                  "Range/Min": 0.0,
-                  "Range/Max": 13.0,
-                  "Range/Center": 0.0,
-                  "Visuals/Orientation": "HORIZONTAL",
-                  "Visuals/Number of tick marks": 5
+                  "Visuals/Num tick marks": 5,
+                  "Visuals/Show text": true,
+                  "Visuals/Orientation": "HORIZONTAL"
                 }
               }
             }
           },
-          "3,3": {
+          "7,0": {
             "size": [
-              1,
-              1
+              3,
+              3
             ],
             "content": {
-              "_type": "List Layout",
-              "_title": "Camera Settings",
-              "_glyph": 149,
+              "_type": "PDP",
+              "_source0": "network_table:///SmartDashboard/PDP",
+              "_title": "/SmartDashboard/PDP",
+              "_glyph": 148,
               "_showGlyph": false,
-              "Layout/Label position": "BOTTOM",
-              "_children": [
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/limelight_PipelineName",
-                  "_title": "/SmartDashboard/limelight_PipelineName",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/limelight_Interface",
-                  "_title": "/SmartDashboard/limelight_Interface",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                },
-                {
-                  "_type": "Network Table Tree",
-                  "_source0": "network_table:///CameraPublisher/limelight",
-                  "_title": "/CameraPublisher/limelight",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/limelight_Stream",
-                  "_title": "/SmartDashboard/limelight_Stream",
-                  "_glyph": 148,
-                  "_showGlyph": false
-                }
-              ]
+              "Visuals/Show voltage and current values": true
             }
           }
         }
-      }
-    },
-    {
-      "title": "LiveWindow",
-      "autoPopulate": true,
-      "autoPopulatePrefix": "LiveWindow/",
-      "widgetPane": {
-        "gridSize": 128.0,
-        "showGrid": true,
-        "hgap": 16.0,
-        "vgap": 16.0,
-        "titleType": 0,
-        "tiles": {}
       }
     }
   ],
