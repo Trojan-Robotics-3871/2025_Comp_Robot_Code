@@ -53,7 +53,7 @@
                   "topic": "/SmartDashboard/Battery Voltage (V)",
                   "period": 0.06,
                   "data_type": "double",
-                  "min_value": 4.0,
+                  "min_value": 9.0,
                   "max_value": 13.0,
                   "divisions": 5,
                   "inverted": false,
@@ -231,7 +231,7 @@
             "x": 640.0,
             "y": 0.0,
             "width": 256.0,
-            "height": 512.0,
+            "height": 256.0,
             "type": "List Layout",
             "properties": {
               "label_position": "LEFT"
@@ -269,42 +269,6 @@
                   "min_value": 0.0,
                   "max_value": 30.0,
                   "divisions": 5,
-                  "inverted": false,
-                  "orientation": "horizontal"
-                }
-              },
-              {
-                "title": "Current (A)",
-                "x": 0.0,
-                "y": 0.0,
-                "width": 128.0,
-                "height": 128.0,
-                "type": "Voltage View",
-                "properties": {
-                  "topic": "/SmartDashboard/Coral Motor Current (A)",
-                  "period": 0.06,
-                  "data_type": "double",
-                  "min_value": 0.0,
-                  "max_value": 13.0,
-                  "divisions": 5,
-                  "inverted": false,
-                  "orientation": "horizontal"
-                }
-              },
-              {
-                "title": "Voltage (V)",
-                "x": 768.0,
-                "y": 256.0,
-                "width": 256.0,
-                "height": 128.0,
-                "type": "Voltage View",
-                "properties": {
-                  "topic": "/SmartDashboard/Coral Motor Voltage (V)",
-                  "period": 0.06,
-                  "data_type": "double",
-                  "min_value": 4.0,
-                  "max_value": 13.0,
-                  "divisions": 3,
                   "inverted": false,
                   "orientation": "horizontal"
                 }

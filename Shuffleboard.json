@@ -391,20 +391,6 @@
                 }
               }
             }
-          },
-          "7,0": {
-            "size": [
-              3,
-              3
-            ],
-            "content": {
-              "_type": "PDP",
-              "_source0": "network_table:///SmartDashboard/PDP",
-              "_title": "/SmartDashboard/PDP",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Visuals/Show voltage and current values": true
-            }
           }
         }
       }
