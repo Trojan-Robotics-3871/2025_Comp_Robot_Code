@@ -65,18 +65,17 @@
         ],
         "containers": [
           {
-            "title": "Limelight 2 - Camera POV",
-            "x": 384.0,
+            "title": "Limelight 2 - Field POV",
+            "x": 512.0,
             "y": 0.0,
-            "width": 896.0,
+            "width": 768.0,
             "height": 768.0,
             "type": "Camera Stream",
             "properties": {
-              "topic": "/CameraPublisher/limelight",
+              "topic": "/CameraPublisher/limelight-trojans",
               "period": 0.06,
               "rotation_turns": 0,
-              "compression": 20,
-              "fps": 30
+              "compression": 100
             }
           }
         ]
