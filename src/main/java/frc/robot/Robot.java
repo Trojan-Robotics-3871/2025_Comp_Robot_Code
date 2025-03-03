@@ -86,7 +86,7 @@ public class Robot extends TimedRobot {
     }
 
     // Configuration for modifying drive wheels speed
-    double maxSpeed = 1;
+    double maxSpeed = 0.75;
     leftSpeed = Math.max(-maxSpeed, Math.min(leftSpeed, maxSpeed));
     rightSpeed = Math.max(-maxSpeed, Math.min(rightSpeed, maxSpeed));
 
