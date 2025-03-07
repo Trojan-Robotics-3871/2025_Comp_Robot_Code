@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticHub;
+
 // Venom Imports -
 import com.playingwithfusion.CANVenom;
 import com.playingwithfusion.CANVenom.BrakeCoastMode;
@@ -32,6 +35,13 @@ public class Robot extends TimedRobot {
   CANVenom LeftFront = new CANVenom(2); // Serial 6739
   CANVenom RightRear = new CANVenom(3); // Serial 6682
   CANVenom LeftRear = new CANVenom(4); // Serial 6725
+
+  // Create pneumatics controllers -
+  private static final int PH_CAN_ID = 11;
+  PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
+  public static int forwardChannel1 = 0;
+  public static int reverseChannel1 = 1;
+  DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
 
   // Spark Motors -
   SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
@@ -178,10 +188,10 @@ public class Robot extends TimedRobot {
       case AutonomousA:
         AutonomousA(elapsedTime);
         break;
-      case AutonomousC:
+      case AutonomousB:
         AutonomousB(elapsedTime);
         break;
-      case AutonomousB:
+      case AutonomousC:
       default:
         AutonomousC(elapsedTime);
         break;
@@ -190,29 +200,29 @@ public class Robot extends TimedRobot {
 
   private void AutonomousA(double elapsedTime) {
     // 0 to 1.5 seconds, drive motors forward at 40% speed
-    if (elapsedTime >= 0 && elapsedTime < 1.5) {
+    if (elapsedTime >= 0 && elapsedTime < 1.2) {
       LeftFront.set(-0.4);
       LeftRear.set(0.4);
       RightFront.set(-0.4);
       RightRear.set(0.4);
     }
     // 1.5 to 2 seconds, drive motors turn off
-    if (elapsedTime >= 1.5 && elapsedTime < 2) {
+    if (elapsedTime >= 1.2 && elapsedTime < 1.5) {
       LeftFront.set(0);
       LeftRear.set(0);
       RightFront.set(0);
       RightRear.set(0);
     }
     // 2 to 2.5 seconds, Coral Motor turns on at 15%
-    if (elapsedTime >= 2 && elapsedTime < 2.5) {
+    if (elapsedTime >= 1.5 && elapsedTime < 2) {
       CoralMotor.set(0.15);
     }
     // 2.5 to 3 seconds, Coral Motor turns off
-    if (elapsedTime >= 2.5 && elapsedTime < 3) {
+    if (elapsedTime >= 2 && elapsedTime < 2.5) {
       CoralMotor.set(0);
     }
     // Disable all motors after 3 seconds
-    else if (elapsedTime >= 3) {
+    else if (elapsedTime >= 2.5) {
       LeftFront.set(0);
       LeftRear.follow(LeftFront);
       RightFront.set(0);
@@ -222,6 +232,27 @@ public class Robot extends TimedRobot {
   }
 
   private void AutonomousB(double elapsedTime) {
+    // 0 to 1.5 seconds, drive motors forward at 40% speed
+    if (elapsedTime >= 0 && elapsedTime < 1.2) {
+      LeftFront.set(-0.4);
+      LeftRear.set(0.4);
+      RightFront.set(-0.4);
+      RightRear.set(0.4);
+    }
+    // 1.5 to 2 seconds, drive motors turn off
+    if (elapsedTime >= 1.2 && elapsedTime < 1.5) {
+      LeftFront.set(0);
+      LeftRear.set(0);
+      RightFront.set(0);
+      RightRear.set(0);
+    }
+    // Disable all motors after 3 seconds
+    else if (elapsedTime >= 1.5) {
+      LeftFront.set(0);
+      LeftRear.follow(LeftFront);
+      RightFront.set(0);
+      RightRear.follow(RightFront);
+    }
   }
 
   private void AutonomousC(double elapsedTime) {
@@ -241,6 +272,15 @@ public class Robot extends TimedRobot {
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
+
+    double leftTriggerValue = Controller.getLeftTriggerAxis();
+      double rightTriggerValue = Controller.getRightTriggerAxis();
+
+      if (leftTriggerValue == 1 && rightTriggerValue == 1) {
+        m_doubleSolenoid.set(DoubleSolenoid.Value.kForward); // Pneumatics up
+      } else {
+        m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse); // Pneumatics down
+      }
 
     // A Button: Set Coral Motor forwards 15% (SLOW)
     if (Controller.getAButton()) {
