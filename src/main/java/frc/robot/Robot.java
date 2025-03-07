@@ -274,13 +274,13 @@ public class Robot extends TimedRobot {
     double coralMotorSpeed = 0;
 
     double leftTriggerValue = Controller.getLeftTriggerAxis();
-      double rightTriggerValue = Controller.getRightTriggerAxis();
+    double rightTriggerValue = Controller.getRightTriggerAxis();
 
-      if (leftTriggerValue == 1 && rightTriggerValue == 1) {
-        m_doubleSolenoid.set(DoubleSolenoid.Value.kForward); // Pneumatics up
-      } else {
-        m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse); // Pneumatics down
-      }
+    if (leftTriggerValue == 1 && rightTriggerValue == 1) {
+      m_doubleSolenoid.set(DoubleSolenoid.Value.kForward); // Pneumatics up
+    } else {
+      m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse); // Pneumatics down
+    }
 
     // A Button: Set Coral Motor forwards 15% (SLOW)
     if (Controller.getAButton()) {
