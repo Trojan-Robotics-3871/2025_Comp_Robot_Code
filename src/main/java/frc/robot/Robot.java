@@ -36,15 +36,16 @@ public class Robot extends TimedRobot {
   CANVenom RightRear = new CANVenom(3); // Serial 6682
   CANVenom LeftRear = new CANVenom(4); // Serial 6725
 
+  // Spark Motors -
+  SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
+  SparkMax Winch = new SparkMax(6, MotorType.kBrushed);
+
   // Create pneumatics controllers -
   private static final int PH_CAN_ID = 11;
   PneumaticHub m_ph = new PneumaticHub(PH_CAN_ID);
   public static int forwardChannel1 = 0;
   public static int reverseChannel1 = 1;
   DoubleSolenoid m_doubleSolenoid = m_ph.makeDoubleSolenoid(forwardChannel1, reverseChannel1);
-
-  // Spark Motors -
-  SparkMax CoralMotor = new SparkMax(5, MotorType.kBrushless);
 
   // Xbox Controller Configuration -
   XboxController Controller = new XboxController(0);
@@ -151,6 +152,9 @@ public class Robot extends TimedRobot {
     // Coral Motor Statistics
     SmartDashboard.putNumber("Coral Motor Power (%)", CoralMotor.get());
     SmartDashboard.putNumber("Coral Motor Temperature (C)", CoralMotor.getMotorTemperature());
+
+    // Winch Statistics
+    SmartDashboard.putNumber("Winch Power (%)", Winch.get());
 
     // Battery Voltage Statistic
     SmartDashboard.putNumber("Battery Voltage (V)", BatteryVoltage);
@@ -295,6 +299,17 @@ public class Robot extends TimedRobot {
     // Y Button: Reverse coral motor backwards 25%
     if (Controller.getYButton()) {
       coralMotorSpeed = -0.25;
+    }
+
+    if (Controller.getPOV() == 0) { // D-pad up
+      Winch.set(1); // Move winch forward
+    } else {
+      Winch.set(0); // Stop the winch if no D-pad is pressed up
+    }
+
+    // Check if X or B button is pressed to move winch backwards
+    if ((Controller.getXButton() && Controller.getBButton())) {
+      Winch.set(-0.5); // Set the winch to move backwards at half speed
     }
 
     // Set the motor speed based on the input
