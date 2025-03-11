@@ -302,14 +302,14 @@ public class Robot extends TimedRobot {
     }
 
     if (Controller.getPOV() == 0) { // D-pad up
-      Winch.set(1); // Move winch forward
+      Winch.set(-1); // Move winch forward
     } else {
       Winch.set(0); // Stop the winch if no D-pad is pressed up
     }
 
     // Check if X or B button is pressed to move winch backwards
     if ((Controller.getXButton() && Controller.getBButton())) {
-      Winch.set(-0.5); // Set the winch to move backwards at half speed
+      Winch.set(0.5); // Set the winch to move backwards at half speed
     }
 
     // Set the motor speed based on the input
