@@ -276,6 +276,7 @@ public class Robot extends TimedRobot {
 
     // Variable to control the Coral motor
     double coralMotorSpeed = 0;
+    double winchSpeed = 0;
 
     double leftTriggerValue = Controller.getLeftTriggerAxis();
     double rightTriggerValue = Controller.getRightTriggerAxis();
@@ -301,19 +302,19 @@ public class Robot extends TimedRobot {
       coralMotorSpeed = -0.25;
     }
 
-    if (Controller.getPOV() == 0) { // D-pad up
-      Winch.set(-1); // Move winch forward
-    } else {
-      Winch.set(0); // Stop the winch if no D-pad is pressed up
+    // Winch goes forward
+    if (Controller.getPOV() == 0) {
+      winchSpeed = -1;
     }
 
-    // Check if X or B button is pressed to move winch backwards
-    if ((Controller.getXButton() && Controller.getBButton())) {
-      Winch.set(0.5); // Set the winch to move backwards at half speed
+    // Winch goes down
+    if (Controller.getPOV() == 180) {
+      winchSpeed = 0.5;
     }
 
     // Set the motor speed based on the input
     CoralMotor.set(coralMotorSpeed);
+    Winch.set(winchSpeed);
   }
 
   @Override
