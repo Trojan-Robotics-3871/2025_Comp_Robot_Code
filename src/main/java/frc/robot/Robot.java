@@ -24,9 +24,11 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
 
-  private static final String AutonomousA = "Autonomous Middle";
-  private static final String AutonomousB = "Autonomous Left";
-  private static final String AutonomousC = "Autonomous Right";
+  private static final String AutonomousA = "Autonomous Forward - 1 Coral";
+  private static final String AutonomousB = "Autonomous Forward - No Coral";
+  private static final String AutonomousC = "Autonomous Right Turn - 1 Coral";
+  private static final String AutonomousD = "Autonomous Left Turn - 1 Coral";
+
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
@@ -127,9 +129,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("PDP", pdp);
 
     // Configure autonomous options
-    m_chooser.setDefaultOption("Autonomous Middle", AutonomousA);
-    m_chooser.addOption("Autonomous Left", AutonomousB);
-    m_chooser.addOption("Autonomous Right", AutonomousC);
+    m_chooser.setDefaultOption("Autonomous Forward - 1 Coral", AutonomousA);
+    m_chooser.addOption("Autonomous Forward - No Coral", AutonomousB);
+    m_chooser.addOption("Autonomous Right Turn - 1 Coral", AutonomousC);
+    m_chooser.addOption("Autonomous Left Turn - 1 Coral", AutonomousD);
     SmartDashboard.putData("Auto choices", m_chooser);
   }
 
@@ -212,8 +215,11 @@ public class Robot extends TimedRobot {
         AutonomousB(elapsedTime);
         break;
       case AutonomousC:
-      default:
         AutonomousC(elapsedTime);
+        break;
+      case AutonomousD:
+      default:
+        AutonomousD(elapsedTime);
         break;
     }
   }
@@ -276,6 +282,83 @@ public class Robot extends TimedRobot {
   }
 
   private void AutonomousC(double elapsedTime) {
+    // 0 to 1.5 seconds, drive motors forward at 40% speed
+    if (elapsedTime >= 0 && elapsedTime < 0.9) {
+      LeftFront.set(-0.4);
+      LeftRear.set(0.4);
+      RightFront.set(-0.4);
+      RightRear.set(0.4);
+    }
+    // 1.5 to 2 seconds, drive motors turn off
+    if (elapsedTime >= 0.9 && elapsedTime < 1.5) {
+      LeftFront.set(0);
+      LeftRear.set(0);
+      RightFront.set(0);
+      RightRear.set(0);
+    }
+    // 2 to 2.5 seconds, Coral Motor turns on at 15%
+    if (elapsedTime >= 1.5 && elapsedTime < 2) {
+      CoralMotor.set(0.15);
+    }
+    // 2.5 to 3 seconds, Coral Motor turns off
+    if (elapsedTime >= 2 && elapsedTime < 2.5) {
+      CoralMotor.set(0);
+    }
+    // 3 to 7.5 seconds, drive motors Backward at 40% speed
+    if (elapsedTime >= 3 && elapsedTime < 5.25) {
+      LeftFront.set(0.08);
+      LeftRear.set(-0.08);
+      RightFront.set(0.5);
+      RightRear.set(-0.5);
+    }
+    // Disable all motors after 4 seconds
+    else if (elapsedTime >= 6) {
+      LeftFront.set(0);
+      LeftRear.follow(LeftFront);
+      RightFront.set(0);
+      RightRear.follow(RightFront);
+      CoralMotor.set(0);
+    }
+  }
+
+  private void AutonomousD(double elapsedTime) {
+    // 0 to 1.5 seconds, drive motors forward at 40% speed
+    if (elapsedTime >= 0 && elapsedTime < 0.9) {
+      LeftFront.set(-0.4);
+      LeftRear.set(0.4);
+      RightFront.set(-0.4);
+      RightRear.set(0.4);
+    }
+    // 1.5 to 2 seconds, drive motors turn off
+    if (elapsedTime >= 0.9 && elapsedTime < 1.5) {
+      LeftFront.set(0);
+      LeftRear.set(0);
+      RightFront.set(0);
+      RightRear.set(0);
+    }
+    // 2 to 2.5 seconds, Coral Motor turns on at 15%
+    if (elapsedTime >= 1.5 && elapsedTime < 2) {
+      CoralMotor.set(0.15);
+    }
+    // 2.5 to 3 seconds, Coral Motor turns off
+    if (elapsedTime >= 2 && elapsedTime < 2.5) {
+      CoralMotor.set(0);
+    }
+    // 3 to 7.5 seconds, drive motors Backward at 40% speed
+    if (elapsedTime >= 3 && elapsedTime < 5.25) {
+      LeftFront.set(0.5);
+      LeftRear.set(-0.5);
+      RightFront.set(0.08);
+      RightRear.set(-0.08);
+    }
+    // Disable all motors after 4 seconds
+    else if (elapsedTime >= 6) {
+      LeftFront.set(0);
+      LeftRear.follow(LeftFront);
+      RightFront.set(0);
+      RightRear.follow(RightFront);
+      CoralMotor.set(0);
+    }
   }
 
   @Override
